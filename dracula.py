@@ -32,11 +32,12 @@ import nltk                                         #Natural language processing
 
 from nltk.corpus import stopwords                   #Stopwords corpus
 from nltk.stem import PorterStemmer                 # Stemmer
-
+import scipy as sp
+import sklearn as sk
 from sklearn.feature_extraction.text import CountVectorizer          #For Bag of words
 from sklearn.feature_extraction.text import TfidfVectorizer          #For TF-IDF
 from gensim.models import Word2Vec      
-nltk.download('stopwords')                             #For Word2Vec
+nltk.download('stopwords')                             
 
 #stopwords
 stop = set(stopwords.words('english'))
@@ -71,16 +72,23 @@ for i in range(0,27):
         
 chaptersStemmed = temp2
 
-#BAG OF WORDS######################### TEST pour le premier chapitre, reste à faire pour tous, je m'en occuperai bientôt
-countV = CountVectorizer(max_features=100) #top 100 words for the chapter 
-bagofwords = countV.fit_transform([chaptersStemmed[0]])
-print(bagofwords)
-        
+#BAG OF WORDS######################### 
+
+bowChapters = []
+for i in range(0,27):
+    countV = CountVectorizer(max_features=50) #top 100 words for the chapter 
+    chapter = [temp2[i]]
+    bowChapters.append(countV.fit_transform(chapter))
+    
+print(bowChapters[0])
+
+
+bowChapters[0].tobsr() 
 #♣OSCAR : Pour le bagofwords, si tu vois : (0,93) 23 par exemple, cela veut dire que me 93ème mot apparait 23 fois.
 #Tu peux voir de quel mot il s'agit en utilisant la liste temp comme ceci 
 temp[0][93] #word = "said"
-        
-        
+sp.shape(bowChapters[0])
+countV
         
         
         
