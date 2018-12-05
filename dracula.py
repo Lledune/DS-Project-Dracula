@@ -70,10 +70,15 @@ for i in range(0,27):
     temp2.append(chapterStemmed)
         
 chaptersStemmed = temp2
+
+#BAG OF WORDS######################### TEST pour le premier chapitre, reste à faire pour tous, je m'en occuperai bientôt
+countV = CountVectorizer(max_features=100) #top 100 words for the chapter 
+bagofwords = countV.fit_transform([chaptersStemmed[0]])
+print(bagofwords)
         
-        
-        
-        
+#♣OSCAR : Pour le bagofwords, si tu vois : (0,93) 23 par exemple, cela veut dire que me 93ème mot apparait 23 fois.
+#Tu peux voir de quel mot il s'agit en utilisant la liste temp comme ceci 
+temp[0][93] #word = "said"
         
         
         
