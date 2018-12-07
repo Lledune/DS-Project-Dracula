@@ -41,7 +41,7 @@ Created on Fri Dec  7 20:56:15 2018
 
 filepath = "C:/Users/Lucien/Desktop/Dracula/dracula.txt"
 
-nLines = 25 #Number of lines by block 
+nLines = 15 #Number of lines by block 
 blocks = [] #blocks of lines 
 counter = 0 #counter for lines 
 cacheBlock = "" #Cache for block 

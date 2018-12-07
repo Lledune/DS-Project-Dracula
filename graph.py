@@ -14,7 +14,7 @@ filepath = "C:/Users/Lucien/Desktop/Dracula/dracula.txt"
 #Open file and divide into blocks
 ###########
 
-nLines = 50 #Number of lines by block 
+nLines = 25 #Number of lines by block 
 blocks = [] #blocks of lines 
 counter = 0 #counter for lines 
 cacheBlock = "" #Cache for block 
