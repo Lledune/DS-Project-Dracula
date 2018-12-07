@@ -25,19 +25,21 @@ for i in range(0, 27):
     chapters.append(expression.search(data).group(0)) 
 
 ###########
+#Preprocessing
+###########
 
 import numpy as np                                  #for large and multi-dimensional arrays
 import pandas as pd                                 #for data manipulation and analysis
 import nltk                                         #Natural language processing tool-kit
-
 from nltk.corpus import stopwords                   #Stopwords corpus
 from nltk.stem import PorterStemmer                 # Stemmer
 import scipy as sp
 import sklearn as sk
 from sklearn.feature_extraction.text import CountVectorizer          #For Bag of words
 from sklearn.feature_extraction.text import TfidfVectorizer          #For TF-IDF
-from gensim.models import Word2Vec      
-nltk.download('stopwords')                             
+from gensim.models import Word2Vec    
+  
+nltk.download('stopwords') #Stopwords list             
 
 #stopwords
 stop = set(stopwords.words('english'))
@@ -92,6 +94,7 @@ temp[0][93] #word = "said"
 #The user fixes the query and the goal is to find the most similar chapter. 
 #For exemple the first chapter talks about diner and visiting, so our exemple query will return that the first chapter is the most 
 #similar to our query and therefore is the one we are looking for.
+#If you used "Dracula is dead and sleeping" then it would return the last chapter. 
 #
 #To use this just change the query by a sentence of your choice (better if related to the book). 
 ########################################
@@ -125,9 +128,9 @@ queryChaps.append(query)
 queryChaps.extend(chaptersStemmed)
 
 tfidf_vectorizer = TfidfVectorizer()
-tfidf_matrix_train = tfidf_vectorizer.fit_transform(queryChaps)  #tfidf score with normalization
+tfidf_matrix_train = tfidf_vectorizer.fit_transform(queryChaps)  #tfidf score with normalization (we take frequencies into account)
 
-scores = cosine_similarity(tfidf_matrix_train[0:1], tfidf_matrix_train) #here the first element of tfidf_matrix_train, since query is the first element of list
+scores = cosine_similarity(tfidf_matrix_train[0:1], tfidf_matrix_train) #here the first element of tfidf matrix, since query is the first element of list
 #convert to list
 scores = scores.tolist()
 scores = scores[0]
@@ -140,7 +143,31 @@ print("Tf-idf cosine scores : ", scores)
 print("The chapter you are looking for should be Chapter", maxPos)
 
 #############################################
+#Now building a graph representing the book 
+#We will read the file and separate it every 10 lines 
+#Then we will check which ones of the principal characters appear 
+#We can then use this relation between characters appearing together to build a frequency of "appearing together" 
+#Then this will be used to build a graph seeing how do the characters interact in the book 
+#Eventually we could try using pagerank in order to see which characters are the most important ones (obciously dracula should be first here..)
+#############################################
 
+filepath = "C:/Users/Lucien/Desktop/Dracula/dracula.txt"
+
+#Open file and divide into blocks
+###########
+
+nLines = 10 #Number of lines by block 
+blocks = [] #blocks of lines 
+counter = 0 #counter for lines 
+cacheBlock = "" #Cache for block 
+for line in open(filepath, 'r'):
+    counter +=1
+    cacheBlock = cacheBlock.join([line[:-1]])
+    if counter == 10:
+        counter = 0
+        blocks.append(cacheBlock)
+        cacheBlock = ""
+    
 
 
 
