@@ -14,7 +14,7 @@ filepath = "C:/Users/Lucien/Desktop/Dracula/dracula.txt"
 #Open file and divide into blocks
 ###########
 
-nLines = 25 #Number of lines by block 
+nLines = 100 #Number of lines by block 
 blocks = [] #blocks of lines 
 counter = 0 #counter for lines 
 cacheBlock = "" #Cache for block 
@@ -88,7 +88,7 @@ blocksStemmed = temp2
 #Now to make our data manipulation easier we are going to associate main characters with a number in a dictionary, so we can make a matrix and use names as indices
 #for clarity in code. 
 
-charsL = ["Dracula", "Jonathan", "Arthur", "Quincey", "Mina", "Wilhelmina", "Renfield", "John", "Jack", "Seward", "Abraham",
+charsL = ["Dracula", "Jonathan", "Arthur", "Quincey", "Mina", "Renfield", "Seward", "Abraham",
           "Van Helsing", "Lucy"]
 #John = Jack = Steward
 #Mina = Wilhelmina
@@ -111,7 +111,7 @@ for word in charsL:
 n = len(chars)
 #Now create the adjacency matrix (take frequency into account)
 #Matrix to stock results .. Then we can add results of synonyms 
-results = np.zeros([13,13]) #init tab
+results = np.zeros([len(charsL),len(charsL)]) #init tab
 #single block ?
 for block in blocksStemmed:
     for charOne in chars:
@@ -120,7 +120,18 @@ for block in blocksStemmed:
                 results[chars[charOne], chars[charTwo]] = results[chars[charOne], chars[charTwo]] + 1
 
 #The diagonal of the matrix tells us how many times a character had been mentionned in the book. 
-                
+###########################
+#Without even reading the book, a lot of information can be extracted from this matrix. 
+#First off, the main character isn't dracula as the name of the book suggest, but the book is more about Harker and van helsing, as 
+#show the column 1 and column 12.
+#Second, Dracula is very absent from the books, he has some connections with Jonathan, Mina, Seward and Van helsing (who is tracking him)
+#But it doesn't seem like he is omnipresent. 
+#Third, it seems like mina have some relations with Dracula but her name occures more often with Jonathan, Van helsing, Lucy and Seward.
+#This is partly because those characters talk a lot about Mina but a more interesting thing can be pointed here. 
+#The fact that Dracula doesn't mention her very often is in fact mostly due to the writing style of the author and the personality of the character...
+#How ? This is quite simple, Dracula often refer as Mine as her "loved one", or "my dear" or these kind of formulations which both informs us on the character style (after verification) 
+#But also on a limitation of our method in this particular context. It is hard to make the algorithm understand that Dracula is in fact talking about Mina when he uses so many different nicknames. 
+###########################               
 import networkx as nx
 
 G = nx.from_numpy_matrix(results)
