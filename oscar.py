@@ -86,12 +86,8 @@ for i in range(0,27):
     chapter = [temp2[i]]
     bowChapters.append(countV.fit_transform(chapter))
     
-print(bowChapters[0])
-
-
-#♣OSCAR : Pour le bagofwords, si tu vois : (0,93) 23 par exemple, cela veut dire que me 93ème mot apparait 23 fois.
-#Tu peux voir de quel mot il s'agit en utilisant la liste temp comme ceci 
-temp[0][93] #word = "said"
+print(bowChapters[2])
+temp[2][1]
 
 ########################################
 #This section aims to use the tfidf similarity cosine in order to make a simple search engine
