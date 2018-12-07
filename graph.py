@@ -88,7 +88,10 @@ blocksStemmed = temp2
 #Now to make our data manipulation easier we are going to associate main characters with a number in a dictionary, so we can make a matrix and use names as indices
 #for clarity in code. 
 
-charsL = ["Dracula", "Jonathan", "Arthur", "Quincey", "Mina", "Renfield", "Seward", "Abraham",
+charsL = ["Dracula", "Jonathan", "Arthur", "Quincey", "Mina", "Renfield", "Seward",
+          "Van Helsing", "Lucy"]
+
+charsLabels = ["Dracula", "Jonathan", "Arthur", "Quincey", "Mina", "Renfield", "Seward",
           "Van Helsing", "Lucy"]
 #John = Jack = Steward
 #Mina = Wilhelmina
@@ -131,11 +134,27 @@ for block in blocksStemmed:
 #The fact that Dracula doesn't mention her very often is in fact mostly due to the writing style of the author and the personality of the character...
 #How ? This is quite simple, Dracula often refer as Mine as her "loved one", or "my dear" or these kind of formulations which both informs us on the character style (after verification) 
 #But also on a limitation of our method in this particular context. It is hard to make the algorithm understand that Dracula is in fact talking about Mina when he uses so many different nicknames. 
-###########################               
+###########################
+                
 import networkx as nx
+#To determine if we have a relatio n between characters, we will arbitrarily define a treshold of 15 for graph relationship representations
+resultsTwo = np.array(results)
+for i in range(0, len(charsL)):
+    for j in range(0, len(charsL)):
+        if resultsTwo[i][j] < 15:
+            resultsTwo[i][j] = 0
+G = nx.from_numpy_matrix(resultsTwo)
 
-G = nx.from_numpy_matrix(results)
+#Mapping labels
+labels = {}
+counter = 0
+for label in charsLabels:
+    labels[counter] = label
+    counter +=1
+H=nx.relabel_nodes(G,labels)
 
+
+nx.draw(H, with_labels = True)
 
 
 
