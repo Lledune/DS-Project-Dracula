@@ -30,6 +30,7 @@ for line in open(filepath, 'r'):
         blocks.append(cacheBlock)
         cacheBlock = ""
         counter = 0
+blocks.append(cacheBlock)
 
 #Now we are going to stem and remove punctuations, stopwords. 
 ###########
@@ -83,6 +84,7 @@ for i in range(0,blockL):
         
 blocksStemmed = temp2
 
+#################################
 #Now to make our data manipulation easier we are going to associate main characters with a number in a dictionary, so we can make a matrix and use names as indices
 #for clarity in code. 
 
@@ -107,19 +109,21 @@ for word in charsL:
     counter +=1
     
 n = len(chars)
+#Now create the adjacency matrix (take frequency into account)
 #Matrix to stock results .. Then we can add results of synonyms 
 results = np.zeros([13,13]) #init tab
 #single block ?
 for block in blocksStemmed:
     for charOne in chars:
         for charTwo in chars:
-            if (charOne in block and charTwo in block): #if the two chars are in the block then add 1 to their relation 
+            if (charOne in block and charTwo in block) and charOne != charTwo: #if the two chars are in the block then add 1 to their relation 
                 results[chars[charOne], chars[charTwo]] = results[chars[charOne], chars[charTwo]] + 1
 
 #The diagonal of the matrix tells us how many times a character had been mentionned in the book. 
                 
+import networkx as nx
 
-
+G = nx.from_numpy_matrix(results)
 
 
 
