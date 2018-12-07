@@ -82,3 +82,56 @@ for i in range(0,blockL):
     temp2.append(chapterStemmed)
         
 blocksStemmed = temp2
+
+#Now to make our data manipulation easier we are going to associate main characters with a number in a dictionary, so we can make a matrix and use names as indices
+#for clarity in code. 
+
+charsL = ["Dracula", "Jonathan", "Arthur", "Quincey", "Mina", "Wilhelmina", "Renfield", "John", "Jack", "Seward", "Abraham",
+          "Van Helsing", "Lucy"]
+#John = Jack = Steward
+#Mina = Wilhelmina
+#Abraham = van helsing
+
+#Now stemming on these as well so they are equal to the stemmed text blocks. 
+
+counter = 0
+for word in charsL:
+    charsL[counter] = charsL[counter].lower()
+    charsL[counter] = snow.stem(charsL[counter])
+    counter +=1
+
+chars = {}
+counter = 0
+for word in charsL:
+    chars[word] = counter
+    counter +=1
+    
+n = len(chars)
+#Matrix to stock results .. Then we can add results of synonyms 
+results = np.zeros([13,13]) #init tab
+#single block ?
+for block in blocksStemmed:
+    for charOne in chars:
+        for charTwo in chars:
+            if (charOne in block and charTwo in block): #if the two chars are in the block then add 1 to their relation 
+                results[chars[charOne], chars[charTwo]] = results[chars[charOne], chars[charTwo]] + 1
+
+#The diagonal of the matrix tells us how many times a character had been mentionned in the book. 
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
