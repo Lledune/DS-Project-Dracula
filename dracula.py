@@ -142,33 +142,6 @@ maxPos = [i for i, j in enumerate(scores) if j == maxScore] #!= 1 to avoid dupli
 print("Tf-idf cosine scores : ", scores)
 print("The chapter you are looking for should be Chapter", maxPos)
 
-#############################################
-#Now building a graph representing the book 
-#We will read the file and separate it every 10 lines 
-#Then we will check which ones of the principal characters appear 
-#We can then use this relation between characters appearing together to build a frequency of "appearing together" 
-#Then this will be used to build a graph seeing how do the characters interact in the book 
-#Eventually we could try using pagerank in order to see which characters are the most important ones (obciously dracula should be first here..)
-#############################################
-
-filepath = "C:/Users/Lucien/Desktop/Dracula/dracula.txt"
-
-#Open file and divide into blocks
-###########
-
-nLines = 10 #Number of lines by block 
-blocks = [] #blocks of lines 
-counter = 0 #counter for lines 
-cacheBlock = "" #Cache for block 
-for line in open(filepath, 'r'):
-    counter +=1
-    cacheBlock = cacheBlock.join([line[:-1]])
-    if counter == 10:
-        counter = 0
-        blocks.append(cacheBlock)
-        cacheBlock = ""
-    
-
 
 
 

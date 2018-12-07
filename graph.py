@@ -1,3 +1,13 @@
+#############################################
+#Now building a graph representing the book 
+#We will read the file and separate it every 10 lines 
+#Then we will check which ones of the principal characters appear 
+#We can then use this relation between characters appearing together to build a frequency of "appearing together" 
+#Then this will be used to build a graph seeing how do the characters interact in the book 
+#Eventually we could try using pagerank in order to see which characters are the most important ones (obciously dracula should be first here..)
+#############################################
+
+
 
 filepath = "C:/Users/Lucien/Desktop/Dracula/dracula.txt"
 
