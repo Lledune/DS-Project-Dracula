@@ -247,7 +247,19 @@ for i in range(8, -1, -1):
 # So if a character is important but stays away from the other main characters it will not be ranked as high as he normally should be. 
 # Altough this gives us a good estimation on the written text itself, informing us that dracula is not appearing a lot in the book.  
 # =============================================================================
+
+#Now the same graph with scores as labels ...
+#Mapping labels
+labels = {}
+counter = 0
+for label in orderedPR:
+    labels[counter] = round(label[1], 4)
+    counter +=1
     
+#Using graph with treshold for representation, much clearer 
+G = nx.from_numpy_matrix(resultsTwo)
+H=nx.relabel_nodes(G,labels)
+nx.draw(H, with_labels = True)
 
 
 
