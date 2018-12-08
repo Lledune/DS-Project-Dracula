@@ -8,7 +8,7 @@
 #############################################
 
 #DISCLAIMER : If you want the graph to be correct do not run the whole code. First run lines 1 to 139,
-#then for pagerank graph run lines 163 to 269, else both graph will be grouped in one which will duplicate nodes.  
+#then for pagerank graph run lines 163 to the end, else both graph will be grouped in one which will duplicate nodes.  
 
 
 filepath = "C:/Users/Lucien/Desktop/Dracula/dracula.txt"
@@ -265,8 +265,25 @@ for label in orderedPR:
     labels[counter] = label[0] +" : " + str(round(label[1], 4))
     counter +=1
     
+
 #Using graph with treshold for representation, much clearer 
 G = nx.from_numpy_matrix(resultsTwo)
+# =============================================================================
+# colormap = []
+# for i in range(0, 9):
+#     if  v[i] < 0.05:
+#         colormap.append('grey')
+#     elif v[i] < 0.10:
+#         colormap.append('paleturquoise')
+#     elif v[i] < 0.15:
+#         colormap.append('darkturquoise')
+#     else:
+#         colormap.append('darkcyan')
+# =============================================================================
+
+for node in G:
+    print(node)
+    
 H=nx.relabel_nodes(G,labels)
 nx.draw(H, with_labels = True)
 
