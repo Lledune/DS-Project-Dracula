@@ -7,6 +7,8 @@
 #Eventually we could try using pagerank in order to see which characters are the most important ones (obciously dracula should be first here..)
 #############################################
 
+#DISCLAIMER : If you want the graph to be correct do not run the whole code. First run lines 1 to 139,
+#then for pagerank graph run lines 163 to 269, else both graph will be grouped in one which will duplicate nodes.  
 
 
 filepath = "C:/Users/Lucien/Desktop/Dracula/dracula.txt"
@@ -160,6 +162,13 @@ nx.draw(H, with_labels = True)
 # 1.2 #######################################
 #First is iterative method, then exact method
 
+resultsTwo = np.array(results)
+for i in range(0, len(charsL)):
+    for j in range(0, len(charsL)):
+        if resultsTwo[i][j] < 15:
+            resultsTwo[i][j] = 0
+G = nx.from_numpy_matrix(resultsTwo)
+
 import numpy as np 
 import networkx as nx
 from scipy import linalg
@@ -253,14 +262,13 @@ for i in range(8, -1, -1):
 labels = {}
 counter = 0
 for label in orderedPR:
-    labels[counter] = round(label[1], 4)
+    labels[counter] = label[0] +" : " + str(round(label[1], 4))
     counter +=1
     
 #Using graph with treshold for representation, much clearer 
 G = nx.from_numpy_matrix(resultsTwo)
 H=nx.relabel_nodes(G,labels)
 nx.draw(H, with_labels = True)
-
 
 
 
