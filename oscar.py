@@ -1,6 +1,5 @@
 #Reading file
 
-
 startStops = [("CHAPTER I", "CHAPTER II"), ("CHAPTER II", "CHAPTER III"), ("CHAPTER III", "CHAPTER IV"),
               ("CHAPTER IV", "CHAPTER V"),
               ("CHAPTER V", "CHAPTER VI"), ("CHAPTER VI", "CHAPTER VII"), ("CHAPTER VII", "CHAPTER VIII"),
@@ -16,8 +15,8 @@ chapters = []
 
 filepath = "D:/Google Drive/DATS2MS/LINMA2472 Algorithms in data science/Project/Dracula/dracula.txt"
 
-#Open file and divide into chapters
-###########
+# Open file and divide into chapters ###########
+
 with open(filepath, 'r') as myfile:
     data=myfile.read().replace('\n', ' ')
 
@@ -78,7 +77,7 @@ for i in range(0,27):
         
 chaptersStemmed = temp2
 
-#BAG OF WORDS######################### 
+# BAG OF WORDS ######################### 
 
 bowChapters = []
 for i in range(0,27):
@@ -89,65 +88,23 @@ for i in range(0,27):
 print(bowChapters[2])
 temp[2][1]
 
-########################################
-#This section aims to use the tfidf similarity cosine in order to make a simple search engine
-#The user fixes the query and the goal is to find the most similar chapter. 
-#For exemple the first chapter talks about diner and visiting, so our exemple query will return that the first chapter is the most 
-#similar to our query and therefore is the one we are looking for.
-#If you used "Dracula is dead and sleeping" then it would return the last chapter. 
-#
-#To use this just change the query by a sentence of your choice (better if related to the book). 
-########################################
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
-from sklearn.feature_extraction.text import TfidfVectorizer
+# Word cloud
 
-query = "I stopped at hotel royale, we had a good diner and i then visited a museum."
-cleanr = re.compile('<.*?>')
-query = query.lower()
-query = re.sub(cleanr, ' ', query) #HTML tags
-query = re.sub(r'[?|!|\'|"|#]',r'',query)
-query = re.sub(r'[.|,|)|(|\|/|_|-|;]',r' ',query) #Punctuations
+from PIL import Image, ImageDraw, ImageFont
+import matplotlib.pyplot as plt
+from wordcloud import WordCloud, STOPWORDS 
+from scipy.misc import imsave
 
-#Stem query
-snow = nltk.stem.SnowballStemmer("english") #stemmer
-query = [snow.stem(word) for word in query.split() if word not in stop]  #Stop is stopwords set
+text = data
 
-#Back to string 
-queryStemmed = ''
-chapterUniqueTemp = temp[i]
-for word in query:
-    queryStemmed = queryStemmed + ' ' + word
-query = queryStemmed        
+def generate_wordcloud(text): # optionally add: stopwords=STOPWORDS and change the arg below
+    wordcloud = WordCloud(relative_scaling = 1.0, stopwords = stop, width = 1920, height = 1080
+                          ).generate(text)
+    plt.imshow(wordcloud)
+    plt.axis("off")
+    plt.axis('off')
+    plt.show()
+    imsave("wordcloud.png", wordcloud)
 
-#Now the query is preprocesed ...
-
-#Query added as first of the list, first of the list is the query for following code
-queryChaps = []
-queryChaps.append(query)
-queryChaps.extend(chaptersStemmed)
-
-tfidf_vectorizer = TfidfVectorizer()
-tfidf_matrix_train = tfidf_vectorizer.fit_transform(queryChaps)  #tfidf score with normalization (we take frequencies into account)
-
-scores = cosine_similarity(tfidf_matrix_train[0:1], tfidf_matrix_train) #here the first element of tfidf matrix, since query is the first element of list
-#convert to list
-scores = scores.tolist()
-scores = scores[0]
-#change score of query since it is =1 and would prevent next line from working properly
-scores[0] = 0
-maxScore = max(scores)
-maxPos = [i for i, j in enumerate(scores) if j == maxScore] #!= 1 to avoid duplicates
-
-print("Tf-idf cosine scores : ", scores)
-print("The chapter you are looking for should be Chapter", maxPos)
-
-
-
-
-
-
-
-
-
+generate_wordcloud(text)
 
