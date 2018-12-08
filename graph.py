@@ -156,6 +156,100 @@ H=nx.relabel_nodes(G,labels)
 
 nx.draw(H, with_labels = True)
 
+#Pagerank algorithm : some parts reused from my own work on the labs 
+# 1.2 #######################################
+#First is iterative method, then exact method
+
+import numpy as np 
+import networkx as nx
+from scipy import linalg
+
+# =============================================================================
+# nNodes = 1000
+# G = nx.barabasi_albert_graph(nNodes, 25, seed = 1234)
+# =============================================================================
+#G is the generated graph
+#S is the matrix representing links
+
+#Reset G to the matrix without treshold
+G = nx.from_numpy_matrix(results)
+
+
+def pageRankIt(G, alpha = 0.85, K = 2000):
+    nNodes = nx.number_of_nodes(G)
+
+    #Creating the network
+    S = nx.to_numpy_matrix(G) #Numpy adj matrix
+    
+    for i in range(0, nNodes): 
+        S[i, :] = S[i, :] / np.sum(S[i, :])
+    summ = np.sum(S, axis = 1) #check == 1, probability that surfer goes from i to j
+    
+    v = np.random.rand(nNodes, 1) #initial guess
+    v = v / np.linalg.norm(v, 1) #L1
+    
+    #google matrix 
+    GM = (alpha * S) + (((1 - alpha) / nNodes) * np.matmul(np.ones(nNodes), v))
+    summG = np.sum(GM, axis = 1) #check == 1, stochastic matrix
+    
+    for i in range(0, nNodes):
+        GM[i, :] = GM[i, :] / np.sum(GM[i, :])
+    
+    v = v.transpose()
+    
+    for i in range(0, K):
+        v = np.matmul(v, GM)
+        
+    v = v.transpose() #put it back in column
+    
+    #Normalize vector by its norm
+    v = v/np.linalg.norm(v, 1)
+
+    return v
+
+v = pageRankIt(G)
+
+# =============================================================================
+# Pagerank is originally an algorithm used by google to generate a ranking between web pages. It mesures the poopularity of a web page but pagerank is not the only 
+# algorithm used in this case, it is just one indicator used to order the results of a research.
+# 
+# It works by assigning each page a score proportional to how many times an user would get on the said page by cliquing on random links all pages. 
+# Therefore a page is linked by a lot of other pages is going to have an high score. We can say that pagerank is a random walk on the graph. 
+# The output is a probability distribution of the likelihoof that the user gets on a said page by randomly clicking. 
+# =============================================================================
+# =============================================================================
+# The algorithm therefore calculates which pages are the most "central" ones, in our case it can be interpreted as 
+# which characters are the centrals ones, and are connected most to other main characters. 
+# It means that we can use it to make a ranking of what are the most important characters troughout the story. 
+# =============================================================================
+
+#Now we are going to assign scores to characters into a dictionary. 
+
+charPR = {}
+counter = 0
+for i in range(0, len(chars)):
+    charPR[charsLabels[counter]] = v[counter][0,0]
+    counter +=1
+
+#ordering
+import operator
+orderedPR = sorted(charPR.items(), key=operator.itemgetter(1))
+
+print("Pagerank done, now printing character from most connected ones to less connected ones ...")
+for i in range(8, -1, -1):
+    print(orderedPR[i][0], " : ", orderedPR[i][1])
+    
+# =============================================================================
+# Advantages : we can represent most importants characters of the story very easily, it is a fast and iterative algorithm that converges to a solution. 
+# Cons : As we can see, if a character is not directly linked to other characters it won't have a high score. This is easily explained 
+# by the fact that pagerank is based on the links between characters. But in our story Dracula is the main "bad guy" pf the story and yet is ranked last... 
+# Why ? Well it is simply because he rarely appears in the book and therefore is not connected to a lot of other characters. 
+# So if a character is important but stays away from the other main characters it will not be ranked as high as he normally should be. 
+# Altough this gives us a good estimation on the written text itself, informing us that dracula is not appearing a lot in the book.  
+# =============================================================================
+    
+
+
 
 
 
