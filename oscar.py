@@ -90,14 +90,21 @@ temp[2][1]
 
 # Word cloud
 
-import wordcloud as wc
 from PIL import Image, ImageDraw, ImageFont
+import matplotlib.pyplot as plt
+from wordcloud import WordCloud, STOPWORDS 
+from scipy.misc import imsave
 
-img_grey = Image.new("L", (1000, 1000))
-draw = ImageDraw.Draw(img_grey)
+text = data
 
-font_path = "D:/Google Drive/DATS2MS/LINMA2472 Algorithms in data science/Project/Dracula/PoetsenOne.ttf"
+def generate_wordcloud(text): # optionally add: stopwords=STOPWORDS and change the arg below
+    wordcloud = WordCloud(relative_scaling = 1.0, stopwords = stop, width = 1920, height = 1080
+                          ).generate(text)
+    plt.imshow(wordcloud)
+    plt.axis("off")
+    plt.axis('off')
+    plt.show()
+    imsave("wordcloud.png", wordcloud)
 
-font = ImageFont.truetype(font_path, 14)
-draw.setfont(font)
-draw.text((500, 500), "Text that will appear in white", fill="white")
+generate_wordcloud(text)
+
