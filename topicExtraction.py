@@ -5,8 +5,16 @@ Created on Sat Dec  8 19:13:34 2018
 @author: Lucien
 """
 
-#Topic extraction, NMF and LDA
-#Reading file
+# =============================================================================
+# Instructions for running the code : 
+# First run from "Preprocessing START" to "Preprocessing END"
+# Then to run full book extraction run lines 92 to 122 
+# And to run chapters extractions run lines 124 to the end
+# =============================================================================
+
+###########
+#Preprocessing START
+###########
 
 
 startStops = [("CHAPTER I", "CHAPTER II"), ("CHAPTER II", "CHAPTER III"), ("CHAPTER III", "CHAPTER IV"), ("CHAPTER IV", "CHAPTER V"), ("CHAPTER V", "CHAPTER VI"), 
@@ -32,9 +40,7 @@ for i in range(0, 27):
     expression = re.compile(r'%s.*?%s' % (Start,End), re.S)
     chapters.append(expression.search(data).group(0)) 
 
-###########
-#Preprocessing
-###########
+
 
 import numpy as np                                  #for large and multi-dimensional arrays
 import pandas as pd                                 #for data manipulation and analysis
@@ -81,17 +87,41 @@ for i in range(0,27):
     temp2.append(chapterStemmed)
         
 chaptersStemmed = temp2
+###############Preprocessing end
 
-#BAG OF WORDS######################### 
+###############Full book extraction START
+from sklearn.decomposition import NMF, LatentDirichletAllocation
+import warnings
 
-bowChapters = []
-for i in range(0,27):
-    countV = CountVectorizer(max_features=50) #top 100 words for the chapter 
-    chapter = [temp2[i]]
-    bowChapters.append(countV.fit_transform(chapter))
-    
+def fxn():
+    warnings.warn("deprecated", DeprecationWarning)
 
-###############
+with warnings.catch_warnings():
+    warnings.simplefilter("ignore")
+    fxn()
+
+#LDA : It uses the tf vectorizer 
+nFeatures = 1000
+nTopics = 3
+
+warnings.filterwarnings("ignore")
+tf_vectorizer = CountVectorizer( max_features=nFeatures, stop_words='english')
+tf = tf_vectorizer.fit_transform(chaptersStemmed)
+tf_feature_names = tf_vectorizer.get_feature_names()
+
+lda = LatentDirichletAllocation(n_topics=nTopics, max_iter=5, learning_method='online', learning_offset=50.,random_state=0).fit(tf)
+
+def topics(lda, features, nWords):
+    for topic_idx, topic in enumerate(lda.components_):
+        print("\n")
+        print("Topic", topic_idx, " : ", end = "")
+        for i in topic.argsort()[:-nWords -1 : -1]:
+            print("".join([features[i]]), end = " ")
+
+topics(lda, tf_feature_names, 20)
+###############Full book extraction END
+
+###############Chapters Extraction START
 from sklearn.decomposition import NMF, LatentDirichletAllocation
 import warnings
 
@@ -124,16 +154,6 @@ for j in range(0,27):
     topics(lda, tf_feature_names, 10)
     
 #NMF
-from sklearn.decomposition import NMF, LatentDirichletAllocation
-import warnings
-
-def fxn():
-    warnings.warn("deprecated", DeprecationWarning)
-
-with warnings.catch_warnings():
-    warnings.simplefilter("ignore")
-    fxn()
-
 nFeatures = 1000
 nTopics = 1
 
@@ -153,103 +173,7 @@ for j in range(0,27):
     
     topics(nmf, tf_feature_names, 10)
 
-#Original topic extraction : full book divided by chapters
-    
-
-filepath = "C:/Users/Lucien/Desktop/Dracula/dracula.txt"
-
-nLines = 100000 #Number of lines by block 
-blocks = [] #blocks of lines 
-counter = 0 #counter for lines 
-cacheBlock = "" #Cache for block 
-for line in open(filepath, 'r'):
-    if line != "\n":
-        #delete the \n, also add space between lines
-        line = [line[:-1]]
-        line = "".join(line)
-        cacheBlock = cacheBlock + " " + line
-        counter +=1
-
-    if counter == nLines:
-        blocks.append(cacheBlock)
-        cacheBlock = ""
-        counter = 0
-blocks.append(cacheBlock)
-
-blocksOriginals = list(blocks)
-#Now we are going to stem and remove punctuations, stopwords. 
-
-###########
-#Preprocessing (code reused from tfidf code, so var names are a bit misleaging but the output we care about is "blocksStemmed")
-###########
-        
-import re
-import numpy as np                                  #for large and multi-dimensional arrays
-import pandas as pd                                 #for data manipulation and analysis
-import nltk                                         #Natural language processing tool-kit
-from nltk.corpus import stopwords                   #Stopwords corpus
-from nltk.stem import PorterStemmer                 # Stemmer
-import scipy as sp
-import sklearn as sk
-from sklearn.feature_extraction.text import CountVectorizer          #For Bag of words
-from sklearn.feature_extraction.text import TfidfVectorizer          #For TF-IDF
-from gensim.models import Word2Vec    
-  
-nltk.download('stopwords') #Stopwords list             
-
-#stopwords
-stop = set(stopwords.words('english'))
-blockL = len(blocks)
-#basic text preprocessing
-for i in range(0, blockL):
-    chapterUnique = blocks[i]
-    cleanr = re.compile('<.*?>')
-    chapterUnique = chapterUnique.lower()
-    chapterUnique = re.sub(cleanr, ' ', chapterUnique) #HTML tags
-    chapterUnique = re.sub(r'[?|!|\'|"|#]',r'',chapterUnique)
-    chapterUnique = re.sub(r'[.|,|)|(|\|/|_|-|;]',r' ',chapterUnique) #Punctuations
-    blocks[i] = chapterUnique
-
-temp = []
-wordsByChapter = []
-snow = nltk.stem.SnowballStemmer("english") #stemmer
-for i in range(0, blockL):
-    chapterUnique = blocks[i]
-    words = [snow.stem(word) for word in chapterUnique.split() if word not in stop]
-    temp.append(words)
-    
-    
-#Convert back to string
-temp2 = []
-for i in range(0,blockL):
-    chapterStemmed = ''
-    chapterUniqueTemp = temp[i]
-    for word in chapterUniqueTemp:
-        chapterStemmed = chapterStemmed + ' ' + word
-    temp2.append(chapterStemmed)
-        
-bookStemmed = temp2
-    
-#LDA : It uses the tf vectorizer 
-nFeatures = 1000
-nTopics = 3
-
-warnings.filterwarnings("ignore")
-tf_vectorizer = CountVectorizer( max_features=nFeatures, stop_words='english')
-tf = tf_vectorizer.fit_transform(chaptersStemmed)
-tf_feature_names = tf_vectorizer.get_feature_names()
-
-lda = LatentDirichletAllocation(n_topics=nTopics, max_iter=5, learning_method='online', learning_offset=50.,random_state=0).fit(tf)
-
-def topics(lda, features, nWords):
-    for topic_idx, topic in enumerate(lda.components_):
-        print("\n")
-        print("Topic", topic_idx, " : ", end = "")
-        for i in topic.argsort()[:-nWords -1 : -1]:
-            print("".join([features[i]]), end = " ")
-
-topics(lda, tf_feature_names, 20)
-    
+#END
 
     
     

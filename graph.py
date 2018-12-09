@@ -95,9 +95,7 @@ charsL = ["Dracula", "Jonathan", "Arthur", "Quincey", "Mina", "Renfield", "Sewar
 
 charsLabels = ["Dracula", "Jonathan", "Arthur", "Quincey", "Mina", "Renfield", "Seward",
           "Van Helsing", "Lucy"]
-#John = Jack = Steward
-#Mina = Wilhelmina
-#Abraham = van helsing
+
 
 #Now stemming on these as well so they are equal to the stemmed text blocks. 
 
@@ -173,10 +171,6 @@ import numpy as np
 import networkx as nx
 from scipy import linalg
 
-# =============================================================================
-# nNodes = 1000
-# G = nx.barabasi_albert_graph(nNodes, 25, seed = 1234)
-# =============================================================================
 #G is the generated graph
 #S is the matrix representing links
 
@@ -268,18 +262,6 @@ for label in orderedPR:
 
 #Using graph with treshold for representation, much clearer 
 G = nx.from_numpy_matrix(resultsTwo)
-# =============================================================================
-# colormap = []
-# for i in range(0, 9):
-#     if  v[i] < 0.05:
-#         colormap.append('grey')
-#     elif v[i] < 0.10:
-#         colormap.append('paleturquoise')
-#     elif v[i] < 0.15:
-#         colormap.append('darkturquoise')
-#     else:
-#         colormap.append('darkcyan')
-# =============================================================================
 
 for node in G:
     print(node)
