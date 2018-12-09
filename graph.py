@@ -16,7 +16,7 @@ filepath = "C:/Users/Lucien/Desktop/Dracula/dracula.txt"
 #Open file and divide into blocks
 ###########
 
-nLines = 100 #Number of lines by block 
+nLines = 10 #Number of lines by block 
 blocks = [] #blocks of lines 
 counter = 0 #counter for lines 
 cacheBlock = "" #Cache for block 
@@ -165,7 +165,7 @@ nx.draw(H, with_labels = True)
 resultsTwo = np.array(results)
 for i in range(0, len(charsL)):
     for j in range(0, len(charsL)):
-        if resultsTwo[i][j] < 15:
+        if resultsTwo[i][j] < 7:
             resultsTwo[i][j] = 0
 G = nx.from_numpy_matrix(resultsTwo)
 
