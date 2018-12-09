@@ -68,11 +68,11 @@ for k in range(0, len(sentencesc)):
         words = [word for word in sentence.split() if word not in stop]
         wordssent.append(words)
     wordssentc.append(wordssent)
-del sentence, wordssent
+del sentence, wordssent, words
     
 # Defining characters
 
-charlist = ["count", "dracula", "beast", "jonathan", "mina", "murray","arthur", "holwood",
+charlist = ["count", "dracula", "beast", "vampire", "jonathan", "mina", "murray","arthur", "holwood",
              "quincey", "morris", "renfield", "john", "seward", "abraham",
              "helsing", "lucy", "westenra"]
 
@@ -99,6 +99,7 @@ for k in range(0, len(charbysentc)):
                     if charbysentc[k][i][j] == "count":  charbysentc[k][i][j] = "Count Dracula"
                     elif charbysentc[k][i][j] == "dracula":  charbysentc[k][i][j] = "Count Dracula"
                     elif charbysentc[k][i][j] == "beast":  charbysentc[k][i][j] = "Count Dracula"
+                    elif charbysentc[k][i][j] == "vampire":  charbysentc[k][i][j] = "Count Dracula"
                     elif charbysentc[k][i][j] == "jonathan":  charbysentc[k][i][j] = "Jonathan Harker"
                     elif charbysentc[k][i][j] == "mina":  charbysentc[k][i][j] = "Mina Murray"
                     elif charbysentc[k][i][j] == "murray":  charbysentc[k][i][j] = "Mina Murray"
@@ -217,8 +218,9 @@ for k in range(0, len(fisc)):
         fisccsv.append(line)
 del line
 
-writer = csv.writer(open("freqitemsets.csv", "w"), dialect='excel')
+f = open("freqitemsets.csv", "w")
+writer = csv.writer(f, dialect='excel')
 writer.writerows(fisccsv)
-
-writer = csv.writer(open("fuckoff.csv", "w"))
+f.close()
+del writer, f
 
