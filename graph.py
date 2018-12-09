@@ -7,32 +7,34 @@
 #Eventually we could try using pagerank in order to see which characters are the most important ones (obciously dracula should be first here..)
 #############################################
 
-#DISCLAIMER : If you want the graph to be correct do not run the whole code. First run lines 1 to 139,
-#then for pagerank graph run lines 163 to the end, else both graph will be grouped in one which will duplicate nodes.  
+#DISCLAIMER : To run this part you can run the full script. Outputs a graph. charPR are the values for pagerank, results is the matrix of "adjacency"  
 
 
 filepath = "C:/Users/Lucien/Desktop/Dracula/dracula.txt"
 
 #Open file and divide into blocks
 ###########
+import nltk as nltk
+sentences = []
 
-nLines = 10 #Number of lines by block 
-blocks = [] #blocks of lines 
-counter = 0 #counter for lines 
-cacheBlock = "" #Cache for block 
-for line in open(filepath, 'r'):
-    if line != "\n":
-        #delete the \n, also add space between lines
-        line = [line[:-1]]
-        line = "".join(line)
-        cacheBlock = cacheBlock + " " + line
-        counter +=1
+with open(filepath, 'r') as myfile:
+    data=myfile.read().replace('\n', ' ')
 
-    if counter == nLines:
-        blocks.append(cacheBlock)
-        cacheBlock = ""
+sentences = nltk.tokenize.sent_tokenize(data)
+
+nSent = 15
+blocks = []
+temp = ""
+counter = 0
+for i in range(0, len(sentences)):
+    temp = temp + " " + sentences[i]
+    counter+=1
+    if counter == nSent:
         counter = 0
-blocks.append(cacheBlock)
+        blocks.append(temp)
+        temp = ""
+
+blocksOriginals = blocks.copy()
 
 #Now we are going to stem and remove punctuations, stopwords. 
 ###########
@@ -137,25 +139,6 @@ for block in blocksStemmed:
 ###########################
                 
 import networkx as nx
-#To determine if we have a relatio n between characters, we will arbitrarily define a treshold of 15 for graph relationship representations
-resultsTwo = np.array(results)
-for i in range(0, len(charsL)):
-    for j in range(0, len(charsL)):
-        if resultsTwo[i][j] < 15:
-            resultsTwo[i][j] = 0
-G = nx.from_numpy_matrix(resultsTwo)
-
-#Mapping labels
-labels = {}
-counter = 0
-for label in charsLabels:
-    labels[counter] = label
-    counter +=1
-H=nx.relabel_nodes(G,labels)
-
-
-nx.draw(H, with_labels = True)
-
 #Pagerank algorithm : some parts reused from my own work on the labs 
 # 1.2 #######################################
 #First is iterative method, then exact method
@@ -163,7 +146,7 @@ nx.draw(H, with_labels = True)
 resultsTwo = np.array(results)
 for i in range(0, len(charsL)):
     for j in range(0, len(charsL)):
-        if resultsTwo[i][j] < 7:
+        if resultsTwo[i][j] < 10:
             resultsTwo[i][j] = 0
 G = nx.from_numpy_matrix(resultsTwo)
 
@@ -262,9 +245,6 @@ for label in orderedPR:
 
 #Using graph with treshold for representation, much clearer 
 G = nx.from_numpy_matrix(resultsTwo)
-
-for node in G:
-    print(node)
     
 H=nx.relabel_nodes(G,labels)
 nx.draw(H, with_labels = True)
