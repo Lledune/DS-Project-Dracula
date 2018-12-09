@@ -1,0 +1,24 @@
+['Quincey Morris'],88
+['Dr. Seward'],126
+['Renfield'],33
+['Prof. Van Helsing'],74
+['Lucy Westenra'],36
+['Mina Murray'],53
+['Count Dracula'],34
+['Jonathan Harker'],78
+"['Quincey Morris', 'Dr. Seward']",16
+"['Quincey Morris', 'Prof. Van Helsing']",6
+"['Quincey Morris', 'Lucy Westenra']",27
+"['Mina Murray', 'Quincey Morris']",16
+"['Count Dracula', 'Quincey Morris']",8
+"['Quincey Morris', 'Jonathan Harker']",8
+"['Prof. Van Helsing', 'Dr. Seward']",9
+"['Dr. Seward', 'Lucy Westenra']",16
+"['Mina Murray', 'Dr. Seward']",25
+"['Mina Murray', 'Lucy Westenra']",16
+"['Count Dracula', 'Jonathan Harker']",5
+"['Quincey Morris', 'Dr. Seward', 'Lucy Westenra']",16
+"['Mina Murray', 'Quincey Morris', 'Dr. Seward']",16
+"['Mina Murray', 'Quincey Morris', 'Lucy Westenra']",16
+"['Mina Murray', 'Dr. Seward', 'Lucy Westenra']",16
+"['Mina Murray', 'Quincey Morris', 'Dr. Seward', 'Lucy Westenra']",16

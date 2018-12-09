@@ -1,0 +1,13 @@
+['Jonathan Harker'],40
+['Dr. Seward'],57
+['Prof. Van Helsing'],151
+['Mina Murray'],149
+['Renfield'],30
+['Count Dracula'],57
+['Arthur Holwood'],9
+['Quincey Morris'],83
+"['Prof. Van Helsing', 'Dr. Seward']",32
+"['Renfield', 'Dr. Seward']",24
+"['Mina Murray', 'Prof. Van Helsing']",13
+"['Renfield', 'Prof. Van Helsing']",24
+"['Prof. Van Helsing', 'Renfield', 'Dr. Seward']",24

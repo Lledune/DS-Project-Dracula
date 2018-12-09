@@ -1,0 +1,36 @@
+['Prof. Van Helsing'],141
+['Jonathan Harker'],64
+['Mina Murray'],153
+['Lucy Westenra'],18
+['Count Dracula'],112
+['Dr. Seward'],30
+['Quincey Morris'],52
+"['Jonathan Harker', 'Prof. Van Helsing']",15
+"['Mina Murray', 'Prof. Van Helsing']",29
+"['Prof. Van Helsing', 'Lucy Westenra']",12
+"['Count Dracula', 'Prof. Van Helsing']",48
+"['Dr. Seward', 'Prof. Van Helsing']",12
+"['Quincey Morris', 'Prof. Van Helsing']",12
+"['Mina Murray', 'Jonathan Harker']",40
+"['Dr. Seward', 'Jonathan Harker']",12
+"['Quincey Morris', 'Jonathan Harker']",12
+"['Mina Murray', 'Dr. Seward']",18
+"['Mina Murray', 'Quincey Morris']",12
+"['Quincey Morris', 'Count Dracula']",12
+"['Quincey Morris', 'Dr. Seward']",17
+"['Jonathan Harker', 'Prof. Van Helsing', 'Mina Murray']",12
+"['Jonathan Harker', 'Dr. Seward', 'Prof. Van Helsing']",12
+"['Jonathan Harker', 'Quincey Morris', 'Prof. Van Helsing']",12
+"['Mina Murray', 'Dr. Seward', 'Prof. Van Helsing']",12
+"['Mina Murray', 'Quincey Morris', 'Prof. Van Helsing']",12
+"['Dr. Seward', 'Quincey Morris', 'Prof. Van Helsing']",12
+"['Mina Murray', 'Dr. Seward', 'Jonathan Harker']",12
+"['Mina Murray', 'Quincey Morris', 'Jonathan Harker']",12
+"['Dr. Seward', 'Quincey Morris', 'Jonathan Harker']",12
+"['Mina Murray', 'Quincey Morris', 'Dr. Seward']",12
+"['Mina Murray', 'Prof. Van Helsing', 'Dr. Seward', 'Jonathan Harker']",12
+"['Mina Murray', 'Quincey Morris', 'Prof. Van Helsing', 'Jonathan Harker']",12
+"['Quincey Morris', 'Dr. Seward', 'Prof. Van Helsing', 'Jonathan Harker']",12
+"['Mina Murray', 'Quincey Morris', 'Dr. Seward', 'Prof. Van Helsing']",12
+"['Mina Murray', 'Quincey Morris', 'Dr. Seward', 'Jonathan Harker']",12
+"['Mina Murray', 'Dr. Seward', 'Prof. Van Helsing', 'Quincey Morris', 'Jonathan Harker']",12

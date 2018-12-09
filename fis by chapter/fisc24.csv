@@ -1,0 +1,13 @@
+['Prof. Van Helsing'],119
+['Quincey Morris'],65
+['Mina Murray'],41
+['Jonathan Harker'],66
+['Count Dracula'],84
+['Lucy Westenra'],20
+['Dr. Seward'],47
+['Arthur Holwood'],10
+"['Count Dracula', 'Prof. Van Helsing']",17
+"['Dr. Seward', 'Prof. Van Helsing']",9
+"['Mina Murray', 'Dr. Seward']",18
+"['Count Dracula', 'Dr. Seward']",9
+"['Dr. Seward', 'Count Dracula', 'Prof. Van Helsing']",9

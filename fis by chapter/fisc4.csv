@@ -1,0 +1,13 @@
+['Mina Murray'],132
+['Lucy Westenra'],52
+['Jonathan Harker'],30
+['Arthur Holwood'],73
+['Dr. Seward'],20
+['Count Dracula'],13
+['Quincey Morris'],69
+['Renfield'],17
+"['Mina Murray', 'Lucy Westenra']",25
+"['Count Dracula', 'Arthur Holwood']",10
+"['Quincey Morris', 'Arthur Holwood']",21
+"['Quincey Morris', 'Count Dracula']",10
+"['Quincey Morris', 'Count Dracula', 'Arthur Holwood']",10

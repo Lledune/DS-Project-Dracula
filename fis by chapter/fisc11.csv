@@ -1,0 +1,22 @@
+['Lucy Westenra'],198
+['Prof. Van Helsing'],242
+['Quincey Morris'],83
+['Dr. Seward'],49
+['Arthur Holwood'],134
+['Mina Murray'],13
+['Jonathan Harker'],72
+['Renfield'],19
+"['Prof. Van Helsing', 'Lucy Westenra']",50
+"['Quincey Morris', 'Lucy Westenra']",15
+"['Arthur Holwood', 'Lucy Westenra']",15
+"['Mina Murray', 'Lucy Westenra']",9
+"['Jonathan Harker', 'Lucy Westenra']",21
+"['Quincey Morris', 'Prof. Van Helsing']",30
+"['Prof. Van Helsing', 'Arthur Holwood']",43
+"['Quincey Morris', 'Arthur Holwood']",15
+"['Renfield', 'Dr. Seward']",19
+"['Quincey Morris', 'Prof. Van Helsing', 'Lucy Westenra']",15
+"['Prof. Van Helsing', 'Arthur Holwood', 'Lucy Westenra']",15
+"['Quincey Morris', 'Arthur Holwood', 'Lucy Westenra']",15
+"['Quincey Morris', 'Prof. Van Helsing', 'Arthur Holwood']",15
+"['Quincey Morris', 'Prof. Van Helsing', 'Arthur Holwood', 'Lucy Westenra']",15

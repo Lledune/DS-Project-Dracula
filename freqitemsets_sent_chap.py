@@ -3,6 +3,7 @@ from itertools import combinations, chain
 import re
 import nltk
 from nltk.corpus import stopwords
+import csv
 
 # Importing data by chapters
 
@@ -27,12 +28,14 @@ chapters = []
 
 with open(filepath, 'r') as myfile:
     data=myfile.read().replace('\n', ' ')
+del myfile
 
 for i in range(0, len(startStops)):
     Start = startStops[i][0]
     End = startStops[i][1]
     expression = re.compile(r'%s.*?%s' % (Start,End), re.S)
     chapters.append(expression.search(data).group(0))
+del data, startStops, End, Start
     
 # Creating sentences
     
@@ -55,6 +58,7 @@ for k in range(0, len(sentencesc)):
         sentence = re.sub(r'[?|!|\'|"|#]',r'',sentence)
         sentence = re.sub(r'[.|,|)|(|\|/|_|-|;]',r' ',sentence)
         sentencesc[k][i] = sentence
+del sentence
 
 wordssentc = []
 for k in range(0, len(sentencesc)):
@@ -64,7 +68,7 @@ for k in range(0, len(sentencesc)):
         words = [word for word in sentence.split() if word not in stop]
         wordssent.append(words)
     wordssentc.append(wordssent)
-    
+del sentence, wordssent
     
 # Defining characters
 
@@ -85,6 +89,7 @@ for k in range(0, len(wordssentc)):
             if charinsent == []: continue
             charbysent.append(charinsent)
     charbysentc.append(charbysent)
+del charbysent, charinsent
 
 # Replacing the names of characters
 
@@ -133,6 +138,7 @@ for k in range(0, len(charbysentc)):
             elif (charbysentc[k][i][j] == "Lucy Westenra"): sentence.append("i")
         charset.append(sentence)
     charsetc.append(charset)
+del charset, sentence
 
 # A priori algorithm
 
@@ -199,3 +205,15 @@ for k in range(0, len(fisc)):
 freqchar = []
 for i in range(0, len(freqchard)):
     if freqchard[i] not in freqchar: freqchar.append(freqchard[i])
+del freqchard
+
+# Exporting in csv
+
+for i in range(0, len(fisc)):
+    writer = csv.writer(open("fisc"+str(i)+".csv", "w"), dialect='excel')
+    writer.writerows(fisc[i])
+
+writer = csv.writer(open("freqitemsets.csv", "w"), dialect='excel')
+writer.writerows(fisc)
+
+writer = csv.writer(open("fuckoff.csv", "w"))

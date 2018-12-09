@@ -1,0 +1,10 @@
+['Lucy Westenra'],40
+['Prof. Van Helsing'],134
+['Arthur Holwood'],83
+['Dr. Seward'],43
+['Jonathan Harker'],15
+['Quincey Morris'],33
+"['Prof. Van Helsing', 'Lucy Westenra']",7
+"['Prof. Van Helsing', 'Arthur Holwood']",23
+"['Dr. Seward', 'Prof. Van Helsing']",8
+"['Quincey Morris', 'Arthur Holwood']",15
