@@ -43,7 +43,7 @@ Created on Fri Dec  7 20:56:15 2018
 # =============================================================================
 
 filepath = "C:/Users/Lucien/Desktop/Dracula/dracula.txt"
-
+import nltk as nltk
 
 ########
 sentences = []

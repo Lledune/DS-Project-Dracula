@@ -136,6 +136,7 @@ with warnings.catch_warnings():
 nFeatures = 1000
 nTopics = 1
 
+print("LDA : ")
 for j in range(0,27):
     warnings.filterwarnings("ignore")
     tf_vectorizer = CountVectorizer( max_features=nFeatures, stop_words='english')
@@ -157,6 +158,7 @@ for j in range(0,27):
 nFeatures = 1000
 nTopics = 1
 
+print("NMF : ")
 for j in range(0,27):
     warnings.filterwarnings("ignore")
     tfidf_vectorizer = TfidfVectorizer(max_features=nFeatures, stop_words='english')
