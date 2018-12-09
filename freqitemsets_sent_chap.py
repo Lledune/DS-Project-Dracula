@@ -217,3 +217,4 @@ writer = csv.writer(open("freqitemsets.csv", "w"), dialect='excel')
 writer.writerows(fisc)
 
 writer = csv.writer(open("fuckoff.csv", "w"))
+
