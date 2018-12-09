@@ -44,25 +44,28 @@ Created on Fri Dec  7 20:56:15 2018
 
 filepath = "C:/Users/Lucien/Desktop/Dracula/dracula.txt"
 
-nLines = 15 #Number of lines by block 
-blocks = [] #blocks of lines 
-counter = 0 #counter for lines 
-cacheBlock = "" #Cache for block 
-for line in open(filepath, 'r'):
-    if line != "\n":
-        #delete the \n, also add space between lines
-        line = [line[:-1]]
-        line = "".join(line)
-        cacheBlock = cacheBlock + " " + line
-        counter +=1
 
-    if counter == nLines:
-        blocks.append(cacheBlock)
-        cacheBlock = ""
+########
+sentences = []
+
+with open(filepath, 'r') as myfile:
+    data=myfile.read().replace('\n', ' ')
+
+sentences = nltk.tokenize.sent_tokenize(data)
+
+nSent = 15
+blocks = []
+temp = ""
+counter = 0
+for i in range(0, len(sentences)):
+    temp = temp + " " + sentences[i]
+    counter+=1
+    if counter == nSent:
         counter = 0
-blocks.append(cacheBlock)
+        blocks.append(temp)
+        temp = ""
 
-blocksOriginals = list(blocks)
+blocksOriginals = blocks.copy()
 #Now we are going to stem and remove punctuations, stopwords. 
 
 ###########
@@ -115,7 +118,6 @@ for i in range(0,blockL):
     temp2.append(chapterStemmed)
         
 blocksStemmed = temp2
-
 ########################################
 #This section aims to use the tfidf similarity cosine in order to make a simple search engine
 #The user fixes the query and the goal is to find the most similar chapter. 
