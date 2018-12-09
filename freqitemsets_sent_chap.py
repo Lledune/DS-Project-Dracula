@@ -187,10 +187,15 @@ def apply_apriori (chap, min_support, max_length):
 
 # Applying apriori by chapter
     
-fisc = apply_apriori(charsetc, 3, 10)
+fisc = apply_apriori(charsetc, 5, 10)
             
-# Getting a list of frequent associations in all chapters
-            
+# Getting list of frequent character sets
 
+freqchard = []
+for k in range(0, len(fisc)):
+    for i in range(0, len(fisc[k])):
+        freqchard.append(fisc[k][i][0])
 
-
+freqchar = []
+for i in range(0, len(freqchard)):
+    if freqchard[i] not in freqchar: freqchar.append(freqchard[i])
