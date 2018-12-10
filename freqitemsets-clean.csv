@@ -1,0 +1,342 @@
+1;Jonathan Harker;9 
+1;Mina Murray;6 
+1;Count Dracula;92 
+2;Jonathan Harker;22 
+2;Count Dracula;176 
+3;Jonathan Harker;10 
+3;Count Dracula;183 
+3;Mina Murray;8 
+3;Mina Murray, Count Dracula;8 
+4;Jonathan Harker;6 
+4;Count Dracula;229 
+4;Mina Murray;15 
+5;Mina Murray;132 
+5;Lucy Westenra;52 
+5;Jonathan Harker;30 
+5;Arthur Holwood;73 
+5;Dr. Seward;20 
+5;Count Dracula;13 
+5;Quincey Morris;69 
+5;Renfield;17 
+5;Mina Murray, Lucy Westenra;25 
+5;Arthur Holwood, Count Dracula;10 
+5;Arthur Holwood, Quincey Morris;21 
+5;Quincey Morris, Count Dracula;10 
+5;Arthur Holwood, Quincey Morris, Count Dracula;10 
+6;Mina Murray;20 
+6;Lucy Westenra;184 
+6;Dr. Seward;17 
+6;Arthur Holwood;31 
+6;Jonathan Harker;43 
+6;Renfield;29 
+6;Arthur Holwood, Lucy Westenra;31 
+7;Mina Murray;14 
+7;Lucy Westenra;39 
+7;Jonathan Harker;5 
+8;Mina Murray;43 
+8;Lucy Westenra;274 
+8;Jonathan Harker;55 
+8;Count Dracula;23 
+8;Arthur Holwood;7 
+8;Renfield;12 
+8;Mina Murray, Jonathan Harker;22 
+8;Lucy Westenra, Jonathan Harker;10 
+9;Mina Murray;58 
+9;Lucy Westenra;171 
+9;Jonathan Harker;35 
+9;Arthur Holwood;80 
+9;Renfield;11 
+9;Dr. Seward;89 
+9;Prof. Van Helsing;80 
+9;Mina Murray, Lucy Westenra;50 
+9;Lucy Westenra, Jonathan Harker;11 
+9;Arthur Holwood, Dr. Seward;43 
+9;Arthur Holwood, Prof. Van Helsing;11 
+9;Prof. Van Helsing, Dr. Seward;31 
+10;Dr. Seward;97 
+10;Arthur Holwood;124 
+10;Lucy Westenra;211 
+10;Prof. Van Helsing;214 
+10;Arthur Holwood, Dr. Seward;25 
+10;Arthur Holwood, Prof. Van Helsing;6 
+10;Lucy Westenra, Prof. Van Helsing;21 
+11;Lucy Westenra;56 
+11;Prof. Van Helsing;106 
+11;Dr. Seward;24 
+11;Prof. Van Helsing, Dr. Seward;24 
+12;Lucy Westenra;198 
+12;Prof. Van Helsing;242 
+12;Quincey Morris;83 
+12;Dr. Seward;49 
+12;Arthur Holwood;134 
+12;Mina Murray;13 
+12;Jonathan Harker;72 
+12;Renfield;19 
+12;Lucy Westenra, Prof. Van Helsing;50 
+12;Quincey Morris, Lucy Westenra;15 
+12;Arthur Holwood, Lucy Westenra;15 
+12;Mina Murray, Lucy Westenra;9 
+12;Lucy Westenra, Jonathan Harker;21 
+12;Quincey Morris, Prof. Van Helsing;30 
+12;Arthur Holwood, Prof. Van Helsing;43 
+12;Arthur Holwood, Quincey Morris;15 
+12;Renfield, Dr. Seward;19 
+12;Quincey Morris, Lucy Westenra, Prof. Van Helsing;15 
+12;Arthur Holwood, Lucy Westenra, Prof. Van Helsing;15 
+12;Arthur Holwood, Quincey Morris, Lucy Westenra;15 
+12;Arthur Holwood, Quincey Morris, Prof. Van Helsing;15 
+12;Quincey Morris, Arthur Holwood, Lucy Westenra, Prof. Van Helsing;15 
+13;Lucy Westenra;113 
+13;Prof. Van Helsing;125 
+13;Arthur Holwood;168 
+13;Dr. Seward;88 
+13;Mina Murray;13 
+13;Jonathan Harker;149 
+13;Count Dracula;9 
+13;Quincey Morris;17 
+13;Lucy Westenra, Prof. Van Helsing;25 
+13;Arthur Holwood, Lucy Westenra;34 
+13;Lucy Westenra, Jonathan Harker;25 
+13;Arthur Holwood, Prof. Van Helsing;31 
+13;Prof. Van Helsing, Dr. Seward;7 
+13;Jonathan Harker, Prof. Van Helsing;25 
+13;Quincey Morris, Prof. Van Helsing;9 
+13;Arthur Holwood, Quincey Morris;16 
+13;Count Dracula, Jonathan Harker;9 
+13;Jonathan Harker, Lucy Westenra, Prof. Van Helsing;25 
+13;Arthur Holwood, Quincey Morris, Prof. Van Helsing;9 
+14;Mina Murray;154 
+14;Jonathan Harker;144 
+14;Count Dracula;5 
+14;Lucy Westenra;177 
+14;Prof. Van Helsing;142 
+14;Arthur Holwood;26 
+14;Dr. Seward;46 
+14;Renfield;5 
+14;Quincey Morris;20 
+14;Mina Murray, Lucy Westenra;10 
+14;Mina Murray, Prof. Van Helsing;23 
+14;Lucy Westenra, Prof. Van Helsing;53 
+14;Arthur Holwood, Lucy Westenra;7 
+14;Lucy Westenra, Dr. Seward;15 
+14;Arthur Holwood, Dr. Seward;7 
+14;Arthur Holwood, Quincey Morris;12 
+14;Arthur Holwood, Lucy Westenra, Dr. Seward;7 
+15;Lucy Westenra;40 
+15;Prof. Van Helsing;134 
+15;Arthur Holwood;83 
+15;Count Dracula;28 
+15;Dr. Seward;49 
+15;Jonathan Harker;15 
+15;Quincey Morris;33 
+15;Lucy Westenra, Prof. Van Helsing;7 
+15;Arthur Holwood, Prof. Van Helsing;23 
+15;Prof. Van Helsing, Dr. Seward;8 
+15;Arthur Holwood, Quincey Morris;15 
+15;Count Dracula, Dr. Seward;16 
+16;Prof. Van Helsing;172 
+16;Arthur Holwood;216 
+16;Lucy Westenra;102 
+16;Quincey Morris;68 
+16;Dr. Seward;14 
+16;Arthur Holwood, Prof. Van Helsing;22 
+16;Quincey Morris, Prof. Van Helsing;9 
+16;Arthur Holwood, Lucy Westenra;31 
+16;Arthur Holwood, Quincey Morris;31 
+17;Prof. Van Helsing;46 
+17;Jonathan Harker;92 
+17;Mina Murray;37 
+17;Dr. Seward;88 
+17;Lucy Westenra;64 
+17;Quincey Morris;31 
+17;Count Dracula;23 
+17;Renfield;18 
+17;Jonathan Harker, Prof. Van Helsing;10 
+17;Lucy Westenra, Prof. Van Helsing;12 
+17;Quincey Morris, Prof. Van Helsing;12 
+17;Jonathan Harker, Dr. Seward;30 
+17;Mina Murray, Dr. Seward;11 
+17;Lucy Westenra, Dr. Seward;15 
+17;Quincey Morris, Lucy Westenra;12 
+17;Renfield, Count Dracula;7 
+17;Quincey Morris, Lucy Westenra, Prof. Van Helsing;12 
+18;Quincey Morris;88 
+18;Dr. Seward;126 
+18;Renfield;33 
+18;Prof. Van Helsing;74 
+18;Lucy Westenra;36 
+18;Mina Murray;53 
+18;Count Dracula;122 
+18;Jonathan Harker;78 
+18;Quincey Morris, Dr. Seward;16 
+18;Quincey Morris, Prof. Van Helsing;6 
+18;Quincey Morris, Lucy Westenra;27 
+18;Mina Murray, Quincey Morris;16 
+18;Quincey Morris, Count Dracula;8 
+18;Quincey Morris, Jonathan Harker;8 
+18;Prof. Van Helsing, Dr. Seward;9 
+18;Lucy Westenra, Dr. Seward;16 
+18;Mina Murray, Dr. Seward;25 
+18;Mina Murray, Lucy Westenra;16 
+18;Count Dracula, Jonathan Harker;5 
+18;Quincey Morris, Lucy Westenra, Dr. Seward;16 
+18;Mina Murray, Quincey Morris, Dr. Seward;16 
+18;Mina Murray, Quincey Morris, Lucy Westenra;16 
+18;Mina Murray, Lucy Westenra, Dr. Seward;16 
+18;Mina Murray, Quincey Morris, Lucy Westenra, Dr. Seward;16 
+19;Mina Murray;80 
+19;Jonathan Harker;116 
+19;Renfield;5 
+19;Quincey Morris;34 
+19;Prof. Van Helsing;57 
+19;Dr. Seward;82 
+19;Count Dracula;43 
+19;Lucy Westenra;16 
+19;Mina Murray, Jonathan Harker;19 
+19;Quincey Morris, Prof. Van Helsing;11 
+19;Prof. Van Helsing, Dr. Seward;26 
+20;Jonathan Harker;24 
+20;Count Dracula;60 
+20;Mina Murray;37 
+20;Dr. Seward;29 
+20;Prof. Van Helsing;37 
+20;Quincey Morris;7 
+20;Renfield;40 
+20;Jonathan Harker, Prof. Van Helsing;7 
+20;Renfield, Dr. Seward;13 
+21;Prof. Van Helsing;175 
+21;Renfield;39 
+21;Arthur Holwood;20 
+21;Quincey Morris;56 
+21;Mina Murray;15 
+21;Dr. Seward;15 
+21;Jonathan Harker;39 
+21;Count Dracula;43 
+21;Lucy Westenra;10 
+21;Arthur Holwood, Prof. Van Helsing;20 
+21;Quincey Morris, Prof. Van Helsing;21 
+21;Jonathan Harker, Prof. Van Helsing;8 
+21;Count Dracula, Prof. Van Helsing;8 
+21;Arthur Holwood, Quincey Morris;14 
+21;Count Dracula, Jonathan Harker;8 
+21;Count Dracula, Lucy Westenra;10 
+21;Arthur Holwood, Quincey Morris, Prof. Van Helsing;14 
+21;Count Dracula, Jonathan Harker, Prof. Van Helsing;8 
+22;Jonathan Harker;40 
+22;Prof. Van Helsing;151 
+22;Dr. Seward;57 
+22;Mina Murray;149 
+22;Renfield;30 
+22;Count Dracula;82 
+22;Arthur Holwood;9 
+22;Quincey Morris;83 
+22;Prof. Van Helsing, Dr. Seward;32 
+22;Mina Murray, Prof. Van Helsing;13 
+22;Renfield, Prof. Van Helsing;24 
+22;Renfield, Dr. Seward;24 
+22;Mina Murray, Count Dracula;10 
+22;Renfield, Prof. Van Helsing, Dr. Seward;24 
+23;Quincey Morris;89 
+23;Count Dracula;79 
+23;Arthur Holwood;25 
+23;Prof. Van Helsing;108 
+23;Mina Murray;99 
+23;Jonathan Harker;56 
+23;Lucy Westenra;8 
+23;Dr. Seward;18 
+23;Quincey Morris, Count Dracula;8 
+23;Arthur Holwood, Quincey Morris;19 
+23;Quincey Morris, Prof. Van Helsing;12 
+23;Quincey Morris, Dr. Seward;12 
+23;Mina Murray, Prof. Van Helsing;6 
+23;Prof. Van Helsing, Dr. Seward;12 
+23;Mina Murray, Jonathan Harker;9 
+23;Quincey Morris, Prof. Van Helsing, Dr. Seward;12 
+24;Jonathan Harker;64 
+24;Prof. Van Helsing;141 
+24;Mina Murray;153 
+24;Lucy Westenra;18 
+24;Count Dracula;115 
+24;Quincey Morris;52 
+24;Dr. Seward;30 
+24;Jonathan Harker, Prof. Van Helsing;15 
+24;Mina Murray, Jonathan Harker;40 
+24;Quincey Morris, Jonathan Harker;12 
+24;Jonathan Harker, Dr. Seward;12 
+24;Mina Murray, Prof. Van Helsing;29 
+24;Lucy Westenra, Prof. Van Helsing;12 
+24;Count Dracula, Prof. Van Helsing;48 
+24;Quincey Morris, Prof. Van Helsing;12 
+24;Prof. Van Helsing, Dr. Seward;12 
+24;Mina Murray, Quincey Morris;12 
+24;Mina Murray, Dr. Seward;18 
+24;Quincey Morris, Count Dracula;12 
+24;Quincey Morris, Dr. Seward;17 
+24;Mina Murray, Jonathan Harker, Prof. Van Helsing;12 
+24;Quincey Morris, Jonathan Harker, Prof. Van Helsing;12 
+24;Jonathan Harker, Prof. Van Helsing, Dr. Seward;12 
+24;Mina Murray, Quincey Morris, Jonathan Harker;12 
+24;Mina Murray, Jonathan Harker, Dr. Seward;12 
+24;Quincey Morris, Jonathan Harker, Dr. Seward;12 
+24;Mina Murray, Quincey Morris, Prof. Van Helsing;12 
+24;Mina Murray, Prof. Van Helsing, Dr. Seward;12 
+24;Quincey Morris, Prof. Van Helsing, Dr. Seward;12 
+24;Mina Murray, Quincey Morris, Dr. Seward;12 
+24;Mina Murray, Quincey Morris, Jonathan Harker, Prof. Van Helsing;12 
+24;Mina Murray, Jonathan Harker, Prof. Van Helsing, Dr. Seward;12 
+24;Quincey Morris, Jonathan Harker, Prof. Van Helsing, Dr. Seward;12 
+24;Mina Murray, Quincey Morris, Jonathan Harker, Dr. Seward;12 
+24;Mina Murray, Quincey Morris, Prof. Van Helsing, Dr. Seward;12 
+24;Quincey Morris, Prof. Van Helsing, Dr. Seward, Mina Murray, Jonathan Harker;12 
+25;Prof. Van Helsing;119 
+25;Quincey Morris;65 
+25;Mina Murray;41 
+25;Jonathan Harker;66 
+25;Count Dracula;84 
+25;Lucy Westenra;20 
+25;Dr. Seward;47 
+25;Arthur Holwood;10 
+25;Count Dracula, Prof. Van Helsing;17 
+25;Prof. Van Helsing, Dr. Seward;9 
+25;Mina Murray, Dr. Seward;18 
+25;Count Dracula, Dr. Seward;9 
+25;Count Dracula, Prof. Van Helsing, Dr. Seward;9 
+26;Prof. Van Helsing;143 
+26;Quincey Morris;106 
+26;Mina Murray;146 
+26;Jonathan Harker;176 
+26;Dr. Seward;83 
+26;Count Dracula;98 
+26;Mina Murray, Prof. Van Helsing;28 
+26;Jonathan Harker, Prof. Van Helsing;47 
+26;Prof. Van Helsing, Dr. Seward;22 
+26;Mina Murray, Quincey Morris;41 
+26;Quincey Morris, Jonathan Harker;21 
+26;Quincey Morris, Dr. Seward;61 
+26;Mina Murray, Jonathan Harker;49 
+26;Mina Murray, Dr. Seward;21 
+26;Jonathan Harker, Dr. Seward;43 
+26;Count Dracula, Jonathan Harker;32 
+26;Mina Murray, Jonathan Harker, Prof. Van Helsing;19 
+26;Jonathan Harker, Prof. Van Helsing, Dr. Seward;22 
+26;Mina Murray, Quincey Morris, Jonathan Harker;21 
+26;Mina Murray, Quincey Morris, Dr. Seward;21 
+26;Quincey Morris, Jonathan Harker, Dr. Seward;21 
+26;Mina Murray, Jonathan Harker, Dr. Seward;21 
+26;Mina Murray, Quincey Morris, Jonathan Harker, Dr. Seward;21 
+27;Mina Murray;218 
+27;Prof. Van Helsing;112 
+27;Jonathan Harker;182 
+27;Dr. Seward;94 
+27;Count Dracula;59 
+27;Quincey Morris;65 
+27;Lucy Westenra;28 
+27;Mina Murray, Jonathan Harker;36 
+27;Mina Murray, Dr. Seward;5 
+27;Mina Murray, Quincey Morris;7 
+27;Prof. Van Helsing, Dr. Seward;16 
+27;Jonathan Harker, Dr. Seward;8 
+27;Quincey Morris, Jonathan Harker;23 
+27;Quincey Morris, Dr. Seward;16 
+27;Lucy Westenra, Dr. Seward;28 
+27;Quincey Morris, Jonathan Harker, Dr. Seward;8 

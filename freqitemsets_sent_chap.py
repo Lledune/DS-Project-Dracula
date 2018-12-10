@@ -7,7 +7,9 @@ import csv
 
 # Importing data by chapters
 
-filepath = "D:/Google Drive/DATS2MS/LINMA2472 Algorithms in data science/Project/Dracula/dracula.txt"
+#################### CHANGE THE PATH BELOW TO MAKE THE CODE RUN ############################
+###### The path mentioned here must be a folder which contains all complementary files #####
+filepath = "D:/Google Drive/DATS2MS/LINMA2472 Algorithms in data science/Project/Dracula/"
 
 startStops = [("CHAPTER I", "CHAPTER II"), ("CHAPTER II", "CHAPTER III"),
               ("CHAPTER III", "CHAPTER IV"), ("CHAPTER IV", "CHAPTER V"),
@@ -26,7 +28,7 @@ startStops = [("CHAPTER I", "CHAPTER II"), ("CHAPTER II", "CHAPTER III"),
 
 chapters = []
 
-with open(filepath, 'r') as myfile:
+with open(filepath+"dracula.txt", 'r') as myfile:
     data=myfile.read().replace('\n', ' ')
 del myfile
 
@@ -142,43 +144,59 @@ for k in range(0, len(charbysentc)):
     charsetc.append(charset)
 del charset, sentence
 
-# A priori algorithm
+# Apriori algorithm
 
-def apriori(s, min_support, max_length):
+def apriori(transet, minsup, maxlen):
     c = Counter()
-
-    for t in s:
-        c.update(set(t))
-
-    frequent_sets = {1:[[set(i) for i in c if c[i]>=min_support],[c[i] for i in c if c[i]>=min_support]]}
-
-    current_level = 1
-
-    while len(frequent_sets[current_level][0]) >= 0 and (current_level < max_length):
-        frequent_sets[current_level+1] = [[],[]]
-        for i, j in combinations(frequent_sets[current_level][0],2):
-            new_set = i.copy()
-            new_set.update(j)
-            if len(new_set) == current_level + 1:
-                support = sum([new_set.issubset(set(t)) for t in s])
-                if support >= min_support:
-                    if new_set not in frequent_sets[current_level+1][0]:
-                        frequent_sets[current_level+1][0].append(new_set)
-                        frequent_sets[current_level+1][1].append(support)
-        current_level += 1
+    for k in transet:
+        c.update(set(k))
+    freq = {1:[[set(i) for i in c if c[i]>=minsup],[c[i] for i in c if c[i]>=minsup]]}
     
-    return list(chain(*[[(x,y) for x,y in zip(a[0],a[1])] for a in frequent_sets.values()]))
+    level = 1
+    while len(freq[level][0]) >= 0 and (level < maxlen):
+        freq[level+1] = [[],[]]
+        for i, j in combinations(freq[level][0],2):
+            seta = i.copy()
+            seta.update(j)
+            if len(seta) == level+1:
+                support = sum([seta.issubset(set(k)) for k in transet])
+                if support >= minsup:
+                    if seta not in freq[level+1][0]:
+                        freq[level+1][0].append(seta)
+                        freq[level+1][1].append(support)
+        level = level+1
+    
+    return list(chain(*[[(x,y) for x,y in zip(k[0],k[1])] for k in freq.values()]))
 
-# Defining the application of a priori on the chapters, returning list of lists
+# Defining the application of Apriori on the chapters, returning list of lists
 
 def apply_apriori (chap, min_support, max_length):
+    charsetc = []
+    for k in range(0, len(chap)):  
+        charset = []
+        for i in range(0, len(chap[k])):
+            sentence = []
+            for j in range(0, len(chap[k][i])):
+                if (chap[k][i][j] == "Count Dracula"): sentence.append("a")
+                elif (chap[k][i][j] == "Jonathan Harker"): sentence.append("b")
+                elif (chap[k][i][j] == "Mina Murray"):  sentence.append("c")
+                elif (chap[k][i][j] == "Arthur Holwood"): sentence.append("d")
+                elif (chap[k][i][j] == "Quincey Morris"): sentence.append("e")
+                elif (chap[k][i][j] == "Renfield"):  sentence.append("f")
+                elif (chap[k][i][j] == "Dr. Seward"): sentence.append("g")
+                elif (chap[k][i][j] == "Prof. Van Helsing"): sentence.append("h")
+                elif (chap[k][i][j] == "Lucy Westenra"): sentence.append("i")
+            charset.append(sentence)
+        charsetc.append(charset)
+    
     fisc = []
-    for k in range(0, len(chap)):
-        fis = apriori(chap[k], min_support, max_length)
+    for k in range(0, len(charsetc)):
+        fis = apriori(charsetc[k], min_support, max_length)
         fislist = []
         for i in range(0, len(fis)):
             fislist.append([list(fis[i][0]), fis[i][1]])
         fisc.append(fislist)
+        
     for k in range(0, len(fisc)):
         for i in range(0, len(fisc[k])):
             for j in range(0, len(fisc[k][i][0])):
@@ -193,21 +211,9 @@ def apply_apriori (chap, min_support, max_length):
                 elif (fisc[k][i][0][j] == "i"): fisc[k][i][0][j] = "Lucy Westenra"
     return(fisc)
 
-# Applying apriori by chapter
-    
-fisc = apply_apriori(charsetc, 5, 10)
-            
-# Getting list of frequent character sets
+# Applying Apriori by chapter
 
-freqchard = []
-for k in range(0, len(fisc)):
-    for i in range(0, len(fisc[k])):
-        freqchard.append(fisc[k][i][0])
-
-freqchar = []
-for i in range(0, len(freqchard)):
-    if freqchard[i] not in freqchar: freqchar.append(freqchard[i])
-del freqchard
+fisc = apply_apriori(charbysentc, 5, 10)
 
 # Exporting in csv
 
